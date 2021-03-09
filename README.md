@@ -2,9 +2,9 @@
 This repository contains the solution for handing timeout, iframes etc in web pages using selenium webdriver
 
 #Technology Stack:
- Java as a programming language
- Cucumber as BDD and JVM Report generation
- Selenium for web automation testing
+ Java as a programming language,
+ Cucumber as BDD and for JVM Report generation,
+ Selenium for web automation testing,
  Gradle as build tool
  
  # Features
