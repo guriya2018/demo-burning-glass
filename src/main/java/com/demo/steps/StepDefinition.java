@@ -78,6 +78,27 @@ public class StepDefinition {
 		Utility.uploadFile(filePath);
 		Thread.sleep(2000);
 	}
+	
+	@Then("User will filled the details as {string},  email, {string}")
+	public void user_will_filled_the_details_as_email(String name, String mobile) throws InterruptedException {
+		Thread.sleep(2000);
+		String freeRegistration = driver.findElement(By.xpath("//div[contains(text(),'Register with us for Free! ')]"))
+				.getText();
+		System.out.println(freeRegistration);
+		Thread.sleep(2000);
+
+		// Assert.assertTrue("Text found!", freeRegistration.contains("Register with us for Free! "));
+		driver.findElement(By.id("name")).sendKeys(name);
+		driver.findElement(By.id("email")).sendKeys(Utility.generateRandomEmailId());
+		driver.findElement(By.id("mobile")).sendKeys(mobile);
+		driver.findElement(By.xpath("//input[@id='exp-years-droopeFor']")).click();
+		driver.findElement(By.xpath("//div[@id='ul_exp-years-droope']/ul/li[4]")).click();
+		driver.findElement(By.xpath("//input[@id='exp-month-droopeFor']")).click();
+		driver.findElement(By.xpath("//div[@id='ul_exp-month-droope']/ul/li[5]")).click();
+		driver.findElement(By.id("password")).sendKeys("Password1!");
+		driver.findElement(By.id("submitBtn")).click();
+	  
+	}
 
 
 	@Given("close the browser")

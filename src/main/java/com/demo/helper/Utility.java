@@ -5,6 +5,7 @@ import java.awt.Toolkit;
 import java.awt.datatransfer.StringSelection;
 import java.awt.event.KeyEvent;
 import java.io.File;
+import java.util.UUID;
 
 import org.apache.commons.configuration.ConfigurationException;
 import org.apache.commons.configuration.PropertiesConfiguration;
@@ -17,6 +18,16 @@ public class Utility {
 	
 	public static String getFilePath(String filePath) {
 		return getAbsolutePath() + File.separator + filePath;
+	}
+	
+	public static String generateUUID() {
+		UUID uuid = UUID.randomUUID();
+		return uuid.toString().substring(0, 5);
+	}
+	
+	public static String generateRandomEmailId() {
+		String emailId= "testuser" + generateUUID() + "@mailinator.com";
+		return emailId;
 	}
 	
 	public static void updateKeyValuesInPropertyFile(String key, String value) {
